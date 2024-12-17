@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Serif%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
     />
 
-    <title>Kirilcə - Azərbaycanca</title>
+    <title>Cyrillic - Azerbaijani</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -24,9 +24,9 @@
       </div>
       <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
         <label class="flex flex-col min-w-40 flex-1">
-          <p class="text-[#141414] text-base font-medium leading-normal pb-2">Kirilcə</p>
+          <p class="text-[#141414] text-base font-medium leading-normal pb-2">Cyrillic</p>
           <textarea
-            placeholder="Yaz və ya yapışdır"
+            placeholder="Type or paste"
             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#F4F4F4] focus:border-none min-h-36 placeholder:text-neutral-500 p-4 text-base font-normal leading-normal"
           ></textarea>
         </label>
@@ -35,18 +35,18 @@
         <button
           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#FF8C00] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]"
         >
-          <span class="truncate">Tərcümə Et</span>
+          <span class="truncate">Convert</span>
         </button>
       </div>
-      <h3 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Azərbaycanca</h3>
+      <h3 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Azerbaijani</h3>
       <p class="translation-result text-[#141414] text-base font-normal leading-normal pb-3 pt-1 px-4">
-        Tərcümə bu hissədə görünəcək
+        Results are showing in here
       </p>
       <div class="h-5 bg-[#FFFFFF]"></div>
     </div>
 
     <script>
-      // Kiril -> Azeri harf dönüştürme eşleştirmeleri
+      // Cyrillic - AzLat alphabet converter matches
       const cyrillicToAzeri = {
         Ә: "Ə",  ә: "ə", Ғ: "Ğ", ғ: "ğ", Ҹ: "C", ҹ: "c", Ҝ: "G", ҝ: "g", Ө: "Ö", ө: "ö", Ү: "Ü", ү: "ü", Ј: "Y", ј: "y", А: "A", а: "a", Б: "B", б: "b", В: "V", в: "v",
         Г: "Q", г: "q", Д: "D", д: "d", Е: "E", е: "e",
@@ -61,17 +61,17 @@
         Э: "E", э: "e", Ю: "Yu", ю: "yu", Я: "Ya", я: "ya"
       };
 
-      // Çeviri işlemi için fonksiyon
+      // Function for convert
       function translateToAzeri(text) {
         return text.split('').map(char => cyrillicToAzeri[char] || char).join('');
       }
 
-      // DOM elementlerini seçelim
+      // Choose DOM elements
       const textarea = document.querySelector('textarea');
       const button = document.querySelector('button');
       const result = document.querySelector('.translation-result');
 
-      // Butona tıklandığında çeviri fonksiyonunu çalıştır
+      // Run function when click on button
       button.addEventListener('click', () => {
         const kirilText = textarea.value;
         const azeriText = translateToAzeri(kirilText);
